@@ -1,3 +1,4 @@
+src/pads.h
 .gitmodules
 .gitignore
 Makefile

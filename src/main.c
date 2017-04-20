@@ -1,5 +1,6 @@
 #include <ch.h>
 #include <hal.h>
+#include <pads.h>
 
 int main(void)
 {
@@ -7,10 +8,19 @@ int main(void)
     halInit();
     chSysInit();
 
-    palSetPadMode(GPIOA, 4, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(LED1_PORT, LED1_PAD, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(LED2_PORT, LED2_PAD, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(LED3_PORT, LED3_PAD, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(LED4_PORT, LED4_PAD, PAL_MODE_OUTPUT_PUSHPULL);
 
     while (true) {
-        palTogglePad(GPIOA, 4);
-        chThdSleepMilliseconds(250);
+        palTogglePad(LED1_PORT, LED1_PAD);
+        chThdSleepMilliseconds(100);
+        palTogglePad(LED2_PORT, LED2_PAD);
+        chThdSleepMilliseconds(100);
+        palTogglePad(LED3_PORT, LED3_PAD);
+        chThdSleepMilliseconds(100);
+        palTogglePad(LED4_PORT, LED4_PAD);
+        chThdSleepMilliseconds(100);
     }
 }

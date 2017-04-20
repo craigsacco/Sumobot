@@ -50,7 +50,7 @@
  * in the initialization code.
  *
  * The following pins will be setup:
- *  * PA13/PA14/PB3 for SWD debug (AF0)
+ *  * PA13/PA14/PB3 for SWD debug (AF0 for SWDIO/SWCLK/SWO)
  *  * all other pins are digital inputs
  */
 #define PIN_MODE_INPUT(n)           (0U << ((n) * 2U))
