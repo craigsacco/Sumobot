@@ -1,0 +1,6 @@
+# intermediate outputs from Qt
+*.autosave
+
+# intermediate and final outputs from build
+.dep/
+build/
