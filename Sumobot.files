@@ -1,7 +1,10 @@
-src/ultrasonic_sensor.c
+src/sensor_data.c
+src/sensor_data.h
+src/sumobot.h
+src/ultrasonic_sensors.h
+src/ultrasonic_sensors.c
 README.md
 flash.sh
-src/pads.h
 .gitmodules
 .gitignore
 Makefile

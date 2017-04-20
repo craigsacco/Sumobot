@@ -110,8 +110,7 @@ CSRC = $(STARTUPSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
        $(TESTSRC) \
-       src/board.c \
-       src/main.c
+       $(wildcard src/*.c)
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.

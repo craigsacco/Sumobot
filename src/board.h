@@ -1,6 +1,6 @@
 #pragma once
 
-#include <pads.h>
+#include <sumobot.h>
 
 #define BOARD_NAME                  "Generic STM32F407 board using SWD/HSE/LSE"
 
@@ -77,13 +77,11 @@
 #define VAL_GPIOC_AFRL              (0U)
 #define VAL_GPIOC_AFRH              (0U)
 
-#define VAL_GPIOD_MODER             (PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_TRIG_COMMON_PAD) | \
-                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_1_ECHO_PAD))
-#define VAL_GPIOD_OTYPER            (PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
-#define VAL_GPIOD_OSPEEDR           (PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
-#define VAL_GPIOD_PUPDR             (PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_TRIG_COMMON_PAD) | \
-                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_1_ECHO_PAD))
-#define VAL_GPIOD_ODR               (PIN_ODR_LOW(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
+#define VAL_GPIOD_MODER             (0U)
+#define VAL_GPIOD_OTYPER            (0U)
+#define VAL_GPIOD_OSPEEDR           (0U)
+#define VAL_GPIOD_PUPDR             (0U)
+#define VAL_GPIOD_ODR               (0U)
 #define VAL_GPIOD_AFRL              (0U)
 #define VAL_GPIOD_AFRH              (0U)
 
@@ -103,11 +101,62 @@
 #define VAL_GPIOF_AFRL              (0U)
 #define VAL_GPIOF_AFRH              (0U)
 
-#define VAL_GPIOG_MODER             (0U)
-#define VAL_GPIOG_OTYPER            (0U)
-#define VAL_GPIOG_OSPEEDR           (0U)
-#define VAL_GPIOG_PUPDR             (0U)
-#define VAL_GPIOG_ODR               (0U)
+#define VAL_GPIOG_MODER             (PIN_MODE_INPUT(ULTRASONIC_SENSOR_1_ECHO_PAD) | \
+                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_2_ECHO_PAD) | \
+                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_3_ECHO_PAD) | \
+                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_4_ECHO_PAD) | \
+                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_5_ECHO_PAD) | \
+                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_6_ECHO_PAD) | \
+                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_7_ECHO_PAD) | \
+                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_8_ECHO_PAD) | \
+                                     PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_1_TRIGGER_PAD) | \
+                                     PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_2_TRIGGER_PAD) | \
+                                     PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_3_TRIGGER_PAD) | \
+                                     PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_4_TRIGGER_PAD) | \
+                                     PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_5_TRIGGER_PAD) | \
+                                     PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_6_TRIGGER_PAD) | \
+                                     PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_7_TRIGGER_PAD) | \
+                                     PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_8_TRIGGER_PAD))
+#define VAL_GPIOG_OTYPER            (PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_1_TRIGGER_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_2_TRIGGER_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_3_TRIGGER_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_4_TRIGGER_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_5_TRIGGER_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_6_TRIGGER_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_7_TRIGGER_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_8_TRIGGER_PAD))
+#define VAL_GPIOG_OSPEEDR           (PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_1_TRIGGER_PAD) | \
+                                     PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_2_TRIGGER_PAD) | \
+                                     PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_3_TRIGGER_PAD) | \
+                                     PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_4_TRIGGER_PAD) | \
+                                     PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_5_TRIGGER_PAD) | \
+                                     PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_6_TRIGGER_PAD) | \
+                                     PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_7_TRIGGER_PAD) | \
+                                     PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_8_TRIGGER_PAD))
+#define VAL_GPIOG_PUPDR             (PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_1_ECHO_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_2_ECHO_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_3_ECHO_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_4_ECHO_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_5_ECHO_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_6_ECHO_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_7_ECHO_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_8_ECHO_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_1_TRIGGER_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_2_TRIGGER_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_3_TRIGGER_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_4_TRIGGER_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_5_TRIGGER_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_6_TRIGGER_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_7_TRIGGER_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_8_TRIGGER_PAD))
+#define VAL_GPIOG_ODR               (PIN_ODR_LOW(ULTRASONIC_SENSOR_1_TRIGGER_PAD) | \
+                                     PIN_ODR_LOW(ULTRASONIC_SENSOR_2_TRIGGER_PAD) | \
+                                     PIN_ODR_LOW(ULTRASONIC_SENSOR_3_TRIGGER_PAD) | \
+                                     PIN_ODR_LOW(ULTRASONIC_SENSOR_4_TRIGGER_PAD) | \
+                                     PIN_ODR_LOW(ULTRASONIC_SENSOR_5_TRIGGER_PAD) | \
+                                     PIN_ODR_LOW(ULTRASONIC_SENSOR_6_TRIGGER_PAD) | \
+                                     PIN_ODR_LOW(ULTRASONIC_SENSOR_7_TRIGGER_PAD) | \
+                                     PIN_ODR_LOW(ULTRASONIC_SENSOR_8_TRIGGER_PAD))
 #define VAL_GPIOG_AFRL              (0U)
 #define VAL_GPIOG_AFRH              (0U)
 
