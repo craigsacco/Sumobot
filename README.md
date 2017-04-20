@@ -23,11 +23,11 @@
 
 * Ubuntu Linux 16.04.2 LTS or Linux Mint 18.2
 * Following packages from APT
-** build-essential
-** git
-** openocd
+  * build-essential
+  * git
+  * openocd
 * Following packages from third-party PPAs
-** GNU ARM Embedded Toolchain (https://launchpad.net/~team-gcc-arm-embedded/+archive/ubuntu/ppa)
+  * GNU ARM Embedded Toolchain (https://launchpad.net/~team-gcc-arm-embedded/+archive/ubuntu/ppa)
 
 # Usage
 
@@ -36,12 +36,25 @@
 * Clone the repository as well as submodules
 * Run <code>make</code> to build everything
 
-## Flash** cmake
+## Flash
 
 * If you haven't built stlink yet, run the following in the *lib/stlink* directory:
-** make clean
-** make all
-** sudo cp -a etc/udev/rules.d/* /etc/udev/rules.d
-** sudo udevadm control --reload
+  * make clean
+  * make all
+  * sudo cp -a etc/udev/rules.d/* /etc/udev/rules.d
+  * sudo udevadm control --reload
 * In the repository root, run the following:
-** ./flash.sh
+  * ./flash.sh
+
+## Debug
+
+* In the repository root, run the following:
+  * openocd
+* Using a second terminal window, run the following:
+  * arm-none-eabi-gdb
+* Run the following commands to load and run a new binary:
+  * target remote :3333
+  * monitor halt
+  * load build/sumobot.elf
+  * continue
+* From this point on, you can use the standard set of GDB commands to debug your application
