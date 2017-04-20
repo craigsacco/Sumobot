@@ -3,7 +3,8 @@
 # Hardware
 
 * A Waveshare Port407Z development board (an STM32F407ZE MCU with 512kB FLASH)
-* Ultrasonic Sensor
+* ST-Link/V2 programmer
+* HC-SR04 ultrasonic sensor integrated controller
 
 ## Pin Assignments
 
@@ -13,11 +14,17 @@
 | PA5 | DO/PP | LED #2 |
 | PA6 | DO/PP | LED #3 |
 | PA7 | DO/PP | LED #4 |
+| PA9 | AF? | USART1 Transmit Data |
+| PA10 | AF? | USART1 Receive Data |
 | PA13 | AF0 | Debug SWDIO |
 | PA14 | AF0 | Debug SWCLK |
 | PB3 | AF0 | Debug SWO |
-| PE0 | DO/PP | Ultrasonic Sensor Common Trigger |
-| PE1 | DI/F | Ultrasonic Sensor #1 Echo |
+| PC14 | N/A | LSE Oscillator (32.768kHz) |
+| PC15 | N/A | LSE Oscillator (32.768kHz) |
+| PD0 | DO/PP | Ultrasonic Sensor Common Trigger |
+| PD1 | DI/F | Ultrasonic Sensor #1 Echo |
+| PH0 | N/A | HSE Oscillator (8MHz) |
+| PH1 | N/A | HSE Oscillator (8MHz) |
 
 # Environment
 

@@ -77,21 +77,21 @@
 #define VAL_GPIOC_AFRL              (0U)
 #define VAL_GPIOC_AFRH              (0U)
 
-#define VAL_GPIOD_MODER             (0U)
-#define VAL_GPIOD_OTYPER            (0U)
-#define VAL_GPIOD_OSPEEDR           (0U)
-#define VAL_GPIOD_PUPDR             (0U)
-#define VAL_GPIOD_ODR               (0U)
+#define VAL_GPIOD_MODER             (PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_TRIG_COMMON_PAD) | \
+                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_1_ECHO_PAD))
+#define VAL_GPIOD_OTYPER            (PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
+#define VAL_GPIOD_OSPEEDR           (PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
+#define VAL_GPIOD_PUPDR             (PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_TRIG_COMMON_PAD) | \
+                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_1_ECHO_PAD))
+#define VAL_GPIOD_ODR               (PIN_ODR_LOW(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
 #define VAL_GPIOD_AFRL              (0U)
 #define VAL_GPIOD_AFRH              (0U)
 
-#define VAL_GPIOE_MODER             (PIN_MODE_OUTPUT(ULTRASONIC_SENSOR_TRIG_COMMON_PAD) | \
-                                     PIN_MODE_INPUT(ULTRASONIC_SENSOR_1_ECHO_PAD))
-#define VAL_GPIOE_OTYPER            (PIN_OTYPE_PUSHPULL(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
-#define VAL_GPIOE_OSPEEDR           (PIN_OSPEED_HIGH(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
-#define VAL_GPIOE_PUPDR             (PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_TRIG_COMMON_PAD) | \
-                                     PIN_PUPDR_FLOATING(ULTRASONIC_SENSOR_1_ECHO_PAD))
-#define VAL_GPIOE_ODR               (PIN_ODR_LOW(ULTRASONIC_SENSOR_TRIG_COMMON_PAD))
+#define VAL_GPIOE_MODER             (0U)
+#define VAL_GPIOE_OTYPER            (0U)
+#define VAL_GPIOE_OSPEEDR           (0U)
+#define VAL_GPIOE_PUPDR             (0U)
+#define VAL_GPIOE_ODR               (0U)
 #define VAL_GPIOE_AFRL              (0U)
 #define VAL_GPIOE_AFRH              (0U)
 

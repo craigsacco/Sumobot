@@ -1,3 +1,4 @@
+src/ultrasonic_sensor.c
 README.md
 flash.sh
 src/pads.h
