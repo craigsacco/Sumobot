@@ -33,28 +33,38 @@
 
 ## Build
 
-* Clone the repository as well as submodules
-* Run <code>make</code> to build everything
+Clone the repository as well as submodules
+Run <code>make</code> to build everything
 
 ## Flash
 
-* If you haven't built stlink yet, run the following in the *lib/stlink* directory:
-  * make clean
-  * make all
-  * sudo cp -a etc/udev/rules.d/* /etc/udev/rules.d
-  * sudo udevadm control --reload
-* In the repository root, run the following:
-  * ./flash.sh
+If you haven't built stlink yet, run the following in the *lib/stlink* directory:
+<code>
+make clean
+make all
+sudo cp -a etc/udev/rules.d/* /etc/udev/rules.d
+sudo udevadm control --reload
+</code>
+In the repository root, run the following:
+<code>
+./flash.sh
+</code>
 
 ## Debug
 
-* In the repository root, run the following:
-  * openocd
-* Using a second terminal window, run the following:
-  * arm-none-eabi-gdb
-* Run the following commands to load and run a new binary:
-  * target remote :3333
-  * monitor halt
-  * load build/sumobot.elf
-  * continue
-* From this point on, you can use the standard set of GDB commands to debug your application
+In the repository root, run the following:
+<code>
+openocd
+</code>
+Using a second terminal window, run the following:
+<code>
+arm-none-eabi-gdb
+</code>
+Run the following commands in GDB to load and run a new binary:
+<code>
+target remote :3333
+monitor halt
+load build/sumobot.elf
+continue
+</code>
+From this point on, you can use the standard set of GDB commands to debug your application
