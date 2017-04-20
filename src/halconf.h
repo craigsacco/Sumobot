@@ -1,34 +1,6 @@
-/*
-    ChibiOS - Copyright (C) 2006..2016 Giovanni Di Sirio
+#pragma once
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-*/
-
-/**
- * @file    templates/halconf.h
- * @brief   HAL configuration header.
- * @details HAL configuration file, this file allows to enable or disable the
- *          various device drivers from your application. You may also use
- *          this file in order to override the device drivers default settings.
- *
- * @addtogroup HAL_CONF
- * @{
- */
-
-#ifndef HALCONF_H
-#define HALCONF_H
-
-#include "mcuconf.h"
+#include <mcuconf.h>
 
 /**
  * @brief   Enables the PAL subsystem.
@@ -62,7 +34,7 @@
  * @brief   Enables the EXT subsystem.
  */
 #if !defined(HAL_USE_EXT) || defined(__DOXYGEN__)
-#define HAL_USE_EXT                 FALSE
+#define HAL_USE_EXT                 TRUE
 #endif
 
 /**
@@ -382,7 +354,3 @@
 #if !defined(USB_USE_WAIT) || defined(__DOXYGEN__)
 #define USB_USE_WAIT                FALSE
 #endif
-
-#endif /* HALCONF_H */
-
-/** @} */

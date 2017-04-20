@@ -8,11 +8,6 @@ int main(void)
     halInit();
     chSysInit();
 
-    palSetPadMode(LED1_PORT, LED1_PAD, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(LED2_PORT, LED2_PAD, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(LED3_PORT, LED3_PAD, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(LED4_PORT, LED4_PAD, PAL_MODE_OUTPUT_PUSHPULL);
-
     while (true) {
         palTogglePad(LED1_PORT, LED1_PAD);
         chThdSleepMilliseconds(100);
