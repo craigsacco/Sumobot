@@ -1,6 +1,7 @@
 .gitmodules
 .gitignore
 Makefile
+openocd.cfg
 src/board.c
 src/board.h
 src/chconf.h

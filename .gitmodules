@@ -1,3 +1,6 @@
 [submodule "lib/chibios"]
 	path = lib/chibios
 	url = https://github.com/ChibiOS/ChibiOS.git
+[submodule "lib/stlink"]
+	path = lib/stlink
+	url = https://github.com/texane/stlink.git

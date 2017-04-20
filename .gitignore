@@ -1,5 +1,6 @@
 # intermediate outputs from Qt
 *.autosave
+*.creator.user
 
 # intermediate and final outputs from build
 .dep/
