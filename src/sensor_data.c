@@ -64,6 +64,15 @@ static THD_WORKING_AREA(sumoSensorDataOutputThreadWA, 1024);
 
 void sumoSensorDataOutputThreadStart(void)
 {
+    // setup and start USART1
+    static const SerialConfig serialcfg = {
+        115200,
+        0,
+        0,
+        0
+    };
+    sdStart(&SD1, &serialcfg);
+
     // create and start thread
     chThdCreateStatic(sumoSensorDataOutputThreadWA, sizeof(sumoSensorDataOutputThreadWA),
                       THD_PRIO_SENSOR_DATA_OUTPUT, sumoSensorDataOutputThread, NULL);

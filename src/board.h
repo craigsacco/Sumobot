@@ -101,11 +101,26 @@
 #define VAL_GPIOE_AFRL              (0U)
 #define VAL_GPIOE_AFRH              (0U)
 
-#define VAL_GPIOF_MODER             (0U)
-#define VAL_GPIOF_OTYPER            (0U)
-#define VAL_GPIOF_OSPEEDR           (0U)
-#define VAL_GPIOF_PUPDR             (0U)
-#define VAL_GPIOF_ODR               (0U)
+#define VAL_GPIOF_MODER             (PIN_MODE_OUTPUT(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_1_PHASE_OUTPUT_4_PAD))
+#define VAL_GPIOF_OTYPER            (PIN_OTYPE_PUSHPULL(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_1_PHASE_OUTPUT_4_PAD))
+#define VAL_GPIOF_OSPEEDR           (PIN_OSPEED_VERYLOW(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_1_PHASE_OUTPUT_4_PAD))
+#define VAL_GPIOF_PUPDR             (PIN_PUPDR_FLOATING(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_1_PHASE_OUTPUT_4_PAD))
+#define VAL_GPIOF_ODR               (PIN_ODR_LOW(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_1_PHASE_OUTPUT_4_PAD))
 #define VAL_GPIOF_AFRL              (0U)
 #define VAL_GPIOF_AFRH              (0U)
 

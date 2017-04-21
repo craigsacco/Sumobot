@@ -3,6 +3,7 @@
 #include <sumobot.h>
 #include <ultrasonic_sensors.h>
 #include <sensor_data.h>
+#include <motor_control.h>
 
 int main(void)
 {
@@ -40,21 +41,13 @@ int main(void)
     };
     extStart(&EXTD1, &extcfg);
 
-    // setup USART1
-    static const SerialConfig serialcfg = {
-        115200,
-        0,
-        0,
-        0
-    };
-    sdStart(&SD1, &serialcfg);
-
     // initialise the sensor data block
     sumoSensorDataInit();
 
     // start threads
     sumoUltrasonicSensorsThreadStart();
     sumoSensorDataOutputThreadStart();
+    sumoMotorControlThreadStart();
 
     // continuously blink the LED
     while (true) {

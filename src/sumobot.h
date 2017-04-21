@@ -6,6 +6,7 @@
 #define NUM_ULTRASONIC_SENSORS              8
 
 //! \section Thread priorities
+#define THD_PRIO_MOTOR_CONTROL              NORMALPRIO + 2
 #define THD_PRIO_ULTRASONIC_SENSORS         NORMALPRIO + 1
 #define THD_PRIO_SENSOR_DATA_OUTPUT         NORMALPRIO - 1
 
@@ -58,3 +59,10 @@
 #define ULTRASONIC_SENSOR_6_TRIGGER_PAD     13
 #define ULTRASONIC_SENSOR_7_TRIGGER_PAD     14
 #define ULTRASONIC_SENSOR_8_TRIGGER_PAD     15
+
+//! \section Motor control port/pad definitions
+#define MOTOR_1_PHASE_OUTPUTS_PORT          GPIOF
+#define MOTOR_1_PHASE_OUTPUT_1_PAD          0
+#define MOTOR_1_PHASE_OUTPUT_2_PAD          1
+#define MOTOR_1_PHASE_OUTPUT_3_PAD          2
+#define MOTOR_1_PHASE_OUTPUT_4_PAD          3

@@ -1,3 +1,5 @@
+src/motor_control.c
+src/motor_control.h
 src/sensor_data.c
 src/sensor_data.h
 src/sumobot.h
