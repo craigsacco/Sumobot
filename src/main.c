@@ -10,17 +10,17 @@ int main(void)
     halInit();
     chSysInit();
 
-
+    // setup external interrupts
     static const EXTConfig extcfg = {
         {
-            {EXT_CH_MODE_BOTH_EDGES | EXT_MODE_GPIOG, ultrasonic_sensor_trigger_isr},
-            {EXT_CH_MODE_BOTH_EDGES | EXT_MODE_GPIOG, ultrasonic_sensor_trigger_isr},
-            {EXT_CH_MODE_BOTH_EDGES | EXT_MODE_GPIOG, ultrasonic_sensor_trigger_isr},
-            {EXT_CH_MODE_BOTH_EDGES | EXT_MODE_GPIOG, ultrasonic_sensor_trigger_isr},
-            {EXT_CH_MODE_BOTH_EDGES | EXT_MODE_GPIOG, ultrasonic_sensor_trigger_isr},
-            {EXT_CH_MODE_BOTH_EDGES | EXT_MODE_GPIOG, ultrasonic_sensor_trigger_isr},
-            {EXT_CH_MODE_BOTH_EDGES | EXT_MODE_GPIOG, ultrasonic_sensor_trigger_isr},
-            {EXT_CH_MODE_BOTH_EDGES | EXT_MODE_GPIOG, ultrasonic_sensor_trigger_isr},
+            {EXT_CH_MODE_FALLING_EDGE | ULTRASONIC_SENSORS_ECHO_EXT_MODE, sumoUltrasonicSensorTriggerISR},
+            {EXT_CH_MODE_FALLING_EDGE | ULTRASONIC_SENSORS_ECHO_EXT_MODE, sumoUltrasonicSensorTriggerISR},
+            {EXT_CH_MODE_FALLING_EDGE | ULTRASONIC_SENSORS_ECHO_EXT_MODE, sumoUltrasonicSensorTriggerISR},
+            {EXT_CH_MODE_FALLING_EDGE | ULTRASONIC_SENSORS_ECHO_EXT_MODE, sumoUltrasonicSensorTriggerISR},
+            {EXT_CH_MODE_FALLING_EDGE | ULTRASONIC_SENSORS_ECHO_EXT_MODE, sumoUltrasonicSensorTriggerISR},
+            {EXT_CH_MODE_FALLING_EDGE | ULTRASONIC_SENSORS_ECHO_EXT_MODE, sumoUltrasonicSensorTriggerISR},
+            {EXT_CH_MODE_FALLING_EDGE | ULTRASONIC_SENSORS_ECHO_EXT_MODE, sumoUltrasonicSensorTriggerISR},
+            {EXT_CH_MODE_FALLING_EDGE | ULTRASONIC_SENSORS_ECHO_EXT_MODE, sumoUltrasonicSensorTriggerISR},
             {EXT_CH_MODE_DISABLED, NULL},
             {EXT_CH_MODE_DISABLED, NULL},
             {EXT_CH_MODE_DISABLED, NULL},
@@ -38,14 +38,23 @@ int main(void)
             {EXT_CH_MODE_DISABLED, NULL}
         }
     };
-
     extStart(&EXTD1, &extcfg);
 
-    // initialise the sensor data block
-    sensor_data_init();
+    // setup USART1
+    static const SerialConfig serialcfg = {
+        115200,
+        0,
+        0,
+        0
+    };
+    sdStart(&SD1, &serialcfg);
 
-    // start the ultrasonic sensor thread
-    ultrasonic_sensor_thread_start();
+    // initialise the sensor data block
+    sumoSensorDataInit();
+
+    // start threads
+    sumoUltrasonicSensorsThreadStart();
+    sumoSensorDataOutputThreadStart();
 
     // continuously blink the LED
     while (true) {

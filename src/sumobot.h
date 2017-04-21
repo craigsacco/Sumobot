@@ -7,6 +7,7 @@
 
 //! \section Thread priorities
 #define THD_PRIO_ULTRASONIC_SENSORS         NORMALPRIO + 1
+#define THD_PRIO_SENSOR_DATA_OUTPUT         NORMALPRIO - 1
 
 //! \section LED port/pad definitions
 #define LED1_PORT                           GPIOA
@@ -17,6 +18,14 @@
 #define LED3_PAD                            6
 #define LED4_PORT                           GPIOA
 #define LED4_PAD                            7
+
+//! \section USART1 port/pad definitions
+#define USART1_TX_PORT                      GPIOA
+#define USART1_TX_PAD                       9
+#define USART1_TX_AF                        7
+#define USART1_RX_PORT                      GPIOA
+#define USART1_RX_PAD                       10
+#define USART1_RX_AF                        7
 
 //! \section Debug port/pad definitions
 #define DEBUG_SWDIO_PORT                    GPIOA
@@ -31,6 +40,7 @@
 
 //! \section Ultrasonic sensor port/pad definitions
 #define ULTRASONIC_SENSORS_ECHO_PORT        GPIOG
+#define ULTRASONIC_SENSORS_ECHO_EXT_MODE    EXT_MODE_GPIOG
 #define ULTRASONIC_SENSOR_1_ECHO_PAD        0
 #define ULTRASONIC_SENSOR_2_ECHO_PAD        1
 #define ULTRASONIC_SENSOR_3_ECHO_PAD        2

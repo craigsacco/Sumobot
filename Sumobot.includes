@@ -23,6 +23,7 @@ lib/chibios/os/hal/ports/STM32/LLD/TIMv1
 lib/chibios/os/hal/ports/STM32/LLD/USARTv1
 lib/chibios/os/hal/ports/STM32/LLD/xWDGv1
 lib/chibios/os/hal/osal/rt
+lib/chibios/os/hal/lib/streams
 lib/chibios/os/rt/include
 lib/chibios/os/common/oslib/include
 lib/chibios/os/common/ports/ARMCMx

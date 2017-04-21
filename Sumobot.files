@@ -153,6 +153,13 @@ lib/chibios/os/hal/ports/STM32/LLD/xWDGv1/hal_wdg_lld.h
 lib/chibios/os/hal/osal/rt/osal.mk
 lib/chibios/os/hal/osal/rt/osal.c
 lib/chibios/os/hal/osal/rt/osal.h
+lib/chibios/os/hal/lib/streams/streams.mk
+lib/chibios/os/hal/lib/streams/chprintf.c
+lib/chibios/os/hal/lib/streams/chprintf.h
+lib/chibios/os/hal/lib/streams/memstreams.c
+lib/chibios/os/hal/lib/streams/memstreams.h
+lib/chibios/os/hal/lib/streams/nullstreams.c
+lib/chibios/os/hal/lib/streams/nullstreams.h
 lib/chibios/os/rt/rt.mk
 lib/chibios/os/rt/include/ch.h
 lib/chibios/os/rt/include/chalign.h
