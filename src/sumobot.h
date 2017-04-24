@@ -4,11 +4,13 @@
 
 //! \section Constants
 #define NUM_ULTRASONIC_SENSORS              8
+#define NUM_MOTORS                          4
 
 //! \section Thread priorities
 #define THD_PRIO_MOTOR_CONTROL              NORMALPRIO + 2
 #define THD_PRIO_ULTRASONIC_SENSORS         NORMALPRIO + 1
-#define THD_PRIO_SENSOR_DATA_OUTPUT         NORMALPRIO - 1
+#define THD_PRIO_RUNTIME_DATA_OUTPUT        NORMALPRIO - 1
+#define THD_PRIO_TEST_THREAD                NORMALPRIO - 2
 
 //! \section LED port/pad definitions
 #define LED1_PORT                           GPIOA
@@ -61,31 +63,36 @@
 #define ULTRASONIC_SENSOR_8_TRIGGER_PAD     15
 
 //! \section DC motor control port/pad definitions
-#define MOTOR_1_IN1_PORT                    GPIOF
+#define MOTORS_INx_PORT                     GPIOF
 #define MOTOR_1_IN1_PAD                     0
-#define MOTOR_1_IN2_PORT                    GPIOF
 #define MOTOR_1_IN2_PAD                     1
-#define MOTOR_1_PWR_PORT                    GPIOE
+#define MOTOR_2_IN1_PAD                     2
+#define MOTOR_2_IN2_PAD                     3
+#define MOTOR_3_IN1_PAD                     4
+#define MOTOR_3_IN2_PAD                     5
+#define MOTOR_4_IN1_PAD                     6
+#define MOTOR_4_IN2_PAD                     7
+#define MOTORS_PWR_PORT                     GPIOE
+#define MOTORS_PWR_PERIPH                   (&PWMD1)
 #define MOTOR_1_PWR_PAD                     9
 #define MOTOR_1_PWR_AF                      1
-#define MOTOR_2_IN1_PORT                    GPIOF
-#define MOTOR_2_IN1_PAD                     2
-#define MOTOR_2_IN2_PORT                    GPIOF
-#define MOTOR_2_IN2_PAD                     3
-#define MOTOR_2_PWR_PORT                    GPIOE
+#define MOTOR_1_PWR_PWM_CH                  0
 #define MOTOR_2_PWR_PAD                     11
 #define MOTOR_2_PWR_AF                      1
-#define MOTOR_3_IN1_PORT                    GPIOF
-#define MOTOR_3_IN1_PAD                     4
-#define MOTOR_3_IN2_PORT                    GPIOF
-#define MOTOR_3_IN2_PAD                     5
-#define MOTOR_3_PWR_PORT                    GPIOE
+#define MOTOR_2_PWR_PWM_CH                  1
 #define MOTOR_3_PWR_PAD                     13
 #define MOTOR_3_PWR_AF                      1
-#define MOTOR_4_IN1_PORT                    GPIOF
-#define MOTOR_4_IN1_PAD                     6
-#define MOTOR_4_IN2_PORT                    GPIOF
-#define MOTOR_4_IN2_PAD                     7
-#define MOTOR_4_PWR_PORT                    GPIOE
+#define MOTOR_3_PWR_PWM_CH                  2
 #define MOTOR_4_PWR_PAD                     14
 #define MOTOR_4_PWR_AF                      1
+#define MOTOR_4_PWR_PWM_CH                  3
+
+//! \section Handy macros
+#define max(a, b)                           ({ __typeof__ (a) _a = (a); \
+                                               __typeof__ (b) _b = (b); \
+                                               _a > _b ? _a : _b; })
+#define min(a, b)                           ({ __typeof__ (a) _a = (a); \
+                                               __typeof__ (b) _b = (b); \
+                                               _a < _b ? _a : _b; })
+#define abs(a)                              ({ __typeof__ (a) _a = (a); \
+                                               _a > 0 ? _a : -(_a); })

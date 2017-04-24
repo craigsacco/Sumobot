@@ -1,8 +1,10 @@
 src/motor_control.c
 src/motor_control.h
-src/sensor_data.c
-src/sensor_data.h
+src/runtime_data.c
+src/runtime_data.h
 src/sumobot.h
+src/test_thread.c
+src/test_thread.h
 src/ultrasonic_sensors.h
 src/ultrasonic_sensors.c
 README.md

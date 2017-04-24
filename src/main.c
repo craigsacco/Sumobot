@@ -2,8 +2,9 @@
 #include <hal.h>
 #include <sumobot.h>
 #include <ultrasonic_sensors.h>
-#include <sensor_data.h>
+#include <runtime_data.h>
 #include <motor_control.h>
+#include <test_thread.h>
 
 int main(void)
 {
@@ -41,13 +42,14 @@ int main(void)
     };
     extStart(&EXTD1, &extcfg);
 
-    // initialise the sensor data block
-    sumoSensorDataInit();
+    // initialise subsystems
+    sumoRuntimeDataInit();
+    sumoUltrasonicSensorsInit();
+    sumoMotorControlInit();
+    sumoTestThreadInit();
 
-    // start threads
-    sumoUltrasonicSensorsThreadStart();
-    sumoSensorDataOutputThreadStart();
-    sumoMotorControlThreadStart();
+    // lower the priority of this thread
+    chThdSetPriority(LOWPRIO);
 
     // continuously blink the LED
     while (true) {
