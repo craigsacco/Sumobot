@@ -4,6 +4,7 @@
 #include <ultrasonic_sensors.h>
 #include <runtime_data.h>
 #include <motor_control.h>
+#include <serial_data_interface.h>
 #include <test_thread.h>
 
 int main(void)
@@ -47,6 +48,7 @@ int main(void)
     sumoUltrasonicSensorsInit();
     sumoMotorControlInit();
     sumoTestThreadInit();
+    sumoSerialDataInterfaceInit();
 
     // lower the priority of this thread
     chThdSetPriority(LOWPRIO);

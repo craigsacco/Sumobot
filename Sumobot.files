@@ -2,6 +2,8 @@ src/motor_control.c
 src/motor_control.h
 src/runtime_data.c
 src/runtime_data.h
+src/serial_data_interface.c
+src/serial_data_interface.h
 src/sumobot.h
 src/test_thread.c
 src/test_thread.h

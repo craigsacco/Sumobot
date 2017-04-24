@@ -31,32 +31,32 @@
                                      PIN_MODE_OUTPUT(LED2_PAD) | \
                                      PIN_MODE_OUTPUT(LED3_PAD) | \
                                      PIN_MODE_OUTPUT(LED4_PAD) | \
-                                     PIN_MODE_ALTERNATE(USART1_TX_PAD) | \
-                                     PIN_MODE_ALTERNATE(USART1_RX_PAD) | \
+                                     PIN_MODE_ALTERNATE(SERIAL_DATA_INTERFACE_TX_PAD) | \
+                                     PIN_MODE_ALTERNATE(SERIAL_DATA_INTERFACE_RX_PAD) | \
                                      PIN_MODE_ALTERNATE(DEBUG_SWDIO_PAD) | \
                                      PIN_MODE_ALTERNATE(DEBUG_SWCLK_PAD))
 #define VAL_GPIOA_OTYPER            (PIN_OTYPE_PUSHPULL(LED1_PAD) | \
                                      PIN_OTYPE_PUSHPULL(LED2_PAD) | \
                                      PIN_OTYPE_PUSHPULL(LED3_PAD) | \
                                      PIN_OTYPE_PUSHPULL(LED4_PAD) | \
-                                     PIN_OTYPE_PUSHPULL(USART1_TX_PAD) | \
-                                     PIN_OTYPE_PUSHPULL(USART1_RX_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(SERIAL_DATA_INTERFACE_TX_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(SERIAL_DATA_INTERFACE_RX_PAD) | \
                                      PIN_OTYPE_PUSHPULL(DEBUG_SWDIO_PAD) | \
                                      PIN_OTYPE_PUSHPULL(DEBUG_SWCLK_PAD))
 #define VAL_GPIOA_OSPEEDR           (PIN_OSPEED_VERYLOW(LED1_PAD) | \
                                      PIN_OSPEED_VERYLOW(LED2_PAD) | \
                                      PIN_OSPEED_VERYLOW(LED3_PAD) | \
                                      PIN_OSPEED_VERYLOW(LED4_PAD) | \
-                                     PIN_OSPEED_HIGH(USART1_TX_PAD) | \
-                                     PIN_OSPEED_HIGH(USART1_RX_PAD) | \
+                                     PIN_OSPEED_HIGH(SERIAL_DATA_INTERFACE_TX_PAD) | \
+                                     PIN_OSPEED_HIGH(SERIAL_DATA_INTERFACE_RX_PAD) | \
                                      PIN_OSPEED_HIGH(DEBUG_SWDIO_PAD) | \
                                      PIN_OSPEED_HIGH(DEBUG_SWCLK_PAD))
 #define VAL_GPIOA_PUPDR             (PIN_PUPDR_FLOATING(LED1_PAD) | \
                                      PIN_PUPDR_FLOATING(LED2_PAD) | \
                                      PIN_PUPDR_FLOATING(LED3_PAD) | \
                                      PIN_PUPDR_FLOATING(LED4_PAD) | \
-                                     PIN_PUPDR_FLOATING(USART1_TX_PAD) | \
-                                     PIN_PUPDR_FLOATING(USART1_RX_PAD) | \
+                                     PIN_PUPDR_FLOATING(SERIAL_DATA_INTERFACE_TX_PAD) | \
+                                     PIN_PUPDR_FLOATING(SERIAL_DATA_INTERFACE_RX_PAD) | \
                                      PIN_PUPDR_FLOATING(DEBUG_SWDIO_PAD) | \
                                      PIN_PUPDR_FLOATING(DEBUG_SWCLK_PAD))
 #define VAL_GPIOA_ODR               (PIN_ODR_LOW(LED1_PAD) | \
@@ -64,8 +64,10 @@
                                      PIN_ODR_LOW(LED3_PAD) | \
                                      PIN_ODR_LOW(LED4_PAD))
 #define VAL_GPIOA_AFRL              (0U)
-#define VAL_GPIOA_AFRH              (PIN_AFIO_AF(USART1_TX_PAD, USART1_TX_AF) | \
-                                     PIN_AFIO_AF(USART1_RX_PAD, USART1_RX_AF) | \
+#define VAL_GPIOA_AFRH              (PIN_AFIO_AF(SERIAL_DATA_INTERFACE_TX_PAD, \
+                                                 SERIAL_DATA_INTERFACE_TX_AF) | \
+                                     PIN_AFIO_AF(SERIAL_DATA_INTERFACE_RX_PAD, \
+                                                 SERIAL_DATA_INTERFACE_RX_AF) | \
                                      PIN_AFIO_AF(DEBUG_SWDIO_PAD, DEBUG_SWDIO_AF) | \
                                      PIN_AFIO_AF(DEBUG_SWCLK_PAD, DEBUG_SWCLK_AF))
 

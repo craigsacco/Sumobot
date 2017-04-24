@@ -9,7 +9,7 @@
 //! \section Thread priorities
 #define THD_PRIO_MOTOR_CONTROL              NORMALPRIO + 2
 #define THD_PRIO_ULTRASONIC_SENSORS         NORMALPRIO + 1
-#define THD_PRIO_RUNTIME_DATA_OUTPUT        NORMALPRIO - 1
+#define THD_PRIO_SERIAL_DATA_INTERFACE      NORMALPRIO - 1
 #define THD_PRIO_TEST_THREAD                NORMALPRIO - 2
 
 //! \section LED port/pad definitions
@@ -22,13 +22,14 @@
 #define LED4_PORT                           GPIOA
 #define LED4_PAD                            7
 
-//! \section USART1 port/pad definitions
-#define USART1_TX_PORT                      GPIOA
-#define USART1_TX_PAD                       9
-#define USART1_TX_AF                        7
-#define USART1_RX_PORT                      GPIOA
-#define USART1_RX_PAD                       10
-#define USART1_RX_AF                        7
+//! \section Serial data interface port/pad definitions
+#define SERIAL_DATA_INTERFACE_TX_PORT       GPIOA
+#define SERIAL_DATA_INTERFACE_TX_PAD        9
+#define SERIAL_DATA_INTERFACE_TX_AF         7
+#define SERIAL_DATA_INTERFACE_RX_PORT       GPIOA
+#define SERIAL_DATA_INTERFACE_RX_PAD        10
+#define SERIAL_DATA_INTERFACE_RX_AF         7
+#define SERIAL_DATA_INTERFACE_PERIPH        (&SD1)
 
 //! \section Debug port/pad definitions
 #define DEBUG_SWDIO_PORT                    GPIOA
