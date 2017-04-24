@@ -13,19 +13,14 @@ static THD_FUNCTION(sumoSerialDataInterfaceThread, p)
     BaseSequentialStream* stream = (BaseSequentialStream*)SERIAL_DATA_INTERFACE_PERIPH;
     while (true) {
         sumoRuntimeDataLock();
-        chprintf(stream, "US:");
         for (uint32_t i = 0; i < NUM_ULTRASONIC_SENSORS; i++) {
-            float value = sumoRuntimeData.ultrasonicSensors[i].distance_mm;
-            if (!isnan(value)) {
-                chprintf(stream, "%.1f", value);
-            } else {
-                chprintf(stream, "NAN");
-            }
-            if (i < NUM_ULTRASONIC_SENSORS - 1) {
-                chprintf(stream, ",");
-            } else {
-                chprintf(stream, "\r\n");
-            }
+            SumoUltrasonicSensorRuntimeData_t* data = &(sumoRuntimeData.ultrasonicSensors[i]);
+            chprintf(stream, "US%u:%.1f,%.1f\r\n", i + 1, data->delay_us, data->distance_mm);
+        }
+        for (uint32_t i = 0; i < NUM_MOTORS; i++) {
+            SumoMotorRuntimeData_t* data = &(sumoRuntimeData.dcMotors[i]);
+            chprintf(stream, "MTR%u:%d,%d,%u\r\n", i + 1, data->currentSpeed_100thsPct,
+                     data->targetSpeed_100thsPct, data->hardStopRequest);
         }
         sumoRuntimeDataUnlock();
 

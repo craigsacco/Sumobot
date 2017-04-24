@@ -57,8 +57,8 @@ void sumoUltrasonicSensorFinish(void)
         // apply an offset
         currentRuntimeData->distance_mm -= 85.0f;
     } else {
-        currentRuntimeData->delay_us = NAN;
-        currentRuntimeData->distance_mm = NAN;
+        currentRuntimeData->delay_us = ULTRASONIC_SENSOR_UNDEFINED;
+        currentRuntimeData->distance_mm = ULTRASONIC_SENSOR_UNDEFINED;
     }
     sumoRuntimeDataUnlock();
 }
@@ -109,8 +109,8 @@ void sumoUltrasonicSensorsInit(void)
         sumoRuntimeData.ultrasonicSensors[i].startTime_cnts = 0;
         sumoRuntimeData.ultrasonicSensors[i].edgeDetected = false;
         sumoRuntimeData.ultrasonicSensors[i].edgeTime_cnts = 0;
-        sumoRuntimeData.ultrasonicSensors[i].delay_us = NAN;
-        sumoRuntimeData.ultrasonicSensors[i].distance_mm = NAN;
+        sumoRuntimeData.ultrasonicSensors[i].delay_us = ULTRASONIC_SENSOR_UNDEFINED;
+        sumoRuntimeData.ultrasonicSensors[i].distance_mm = ULTRASONIC_SENSOR_UNDEFINED;
     }
     sumoRuntimeDataUnlock();
 
