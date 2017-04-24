@@ -73,7 +73,7 @@
 #define VAL_GPIOB_OTYPER            (PIN_OTYPE_PUSHPULL(DEBUG_SWO_PAD))
 #define VAL_GPIOB_OSPEEDR           (PIN_OSPEED_HIGH(DEBUG_SWO_PAD))
 #define VAL_GPIOB_PUPDR             (PIN_PUPDR_FLOATING(DEBUG_SWO_PAD))
-#define VAL_GPIOB_ODR               (PIN_ODR_HIGH(DEBUG_SWO_PAD))
+#define VAL_GPIOB_ODR               (0U)
 #define VAL_GPIOB_AFRL              (PIN_AFIO_AF(DEBUG_SWO_PAD, DEBUG_SWO_AF))
 #define VAL_GPIOB_AFRH              (0U)
 
@@ -93,34 +93,69 @@
 #define VAL_GPIOD_AFRL              (0U)
 #define VAL_GPIOD_AFRH              (0U)
 
-#define VAL_GPIOE_MODER             (0U)
-#define VAL_GPIOE_OTYPER            (0U)
-#define VAL_GPIOE_OSPEEDR           (0U)
-#define VAL_GPIOE_PUPDR             (0U)
+#define VAL_GPIOE_MODER             (PIN_MODE_ALTERNATE(MOTOR_1_PWR_PAD) | \
+                                     PIN_MODE_ALTERNATE(MOTOR_2_PWR_PAD) | \
+                                     PIN_MODE_ALTERNATE(MOTOR_3_PWR_PAD) | \
+                                     PIN_MODE_ALTERNATE(MOTOR_4_PWR_PAD))
+#define VAL_GPIOE_OTYPER            (PIN_OTYPE_PUSHPULL(MOTOR_1_PWR_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_2_PWR_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_3_PWR_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_4_PWR_PAD))
+#define VAL_GPIOE_OSPEEDR           (PIN_OSPEED_HIGH(MOTOR_1_PWR_PAD) | \
+                                     PIN_OSPEED_HIGH(MOTOR_2_PWR_PAD) | \
+                                     PIN_OSPEED_HIGH(MOTOR_3_PWR_PAD) | \
+                                     PIN_OSPEED_HIGH(MOTOR_4_PWR_PAD))
+#define VAL_GPIOE_PUPDR             (PIN_PUPDR_FLOATING(MOTOR_1_PWR_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_2_PWR_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_3_PWR_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_4_PWR_PAD))
 #define VAL_GPIOE_ODR               (0U)
 #define VAL_GPIOE_AFRL              (0U)
-#define VAL_GPIOE_AFRH              (0U)
+#define VAL_GPIOE_AFRH              (PIN_AFIO_AF(MOTOR_1_PWR_PAD, MOTOR_1_PWR_AF) | \
+                                     PIN_AFIO_AF(MOTOR_2_PWR_PAD, MOTOR_2_PWR_AF) | \
+                                     PIN_AFIO_AF(MOTOR_3_PWR_PAD, MOTOR_3_PWR_AF) | \
+                                     PIN_AFIO_AF(MOTOR_4_PWR_PAD, MOTOR_4_PWR_AF))
 
-#define VAL_GPIOF_MODER             (PIN_MODE_OUTPUT(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
-                                     PIN_MODE_OUTPUT(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
-                                     PIN_MODE_OUTPUT(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
-                                     PIN_MODE_OUTPUT(MOTOR_1_PHASE_OUTPUT_4_PAD))
-#define VAL_GPIOF_OTYPER            (PIN_OTYPE_PUSHPULL(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
-                                     PIN_OTYPE_PUSHPULL(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
-                                     PIN_OTYPE_PUSHPULL(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
-                                     PIN_OTYPE_PUSHPULL(MOTOR_1_PHASE_OUTPUT_4_PAD))
-#define VAL_GPIOF_OSPEEDR           (PIN_OSPEED_VERYLOW(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
-                                     PIN_OSPEED_VERYLOW(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
-                                     PIN_OSPEED_VERYLOW(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
-                                     PIN_OSPEED_VERYLOW(MOTOR_1_PHASE_OUTPUT_4_PAD))
-#define VAL_GPIOF_PUPDR             (PIN_PUPDR_FLOATING(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
-                                     PIN_PUPDR_FLOATING(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
-                                     PIN_PUPDR_FLOATING(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
-                                     PIN_PUPDR_FLOATING(MOTOR_1_PHASE_OUTPUT_4_PAD))
-#define VAL_GPIOF_ODR               (PIN_ODR_LOW(MOTOR_1_PHASE_OUTPUT_1_PAD) | \
-                                     PIN_ODR_LOW(MOTOR_1_PHASE_OUTPUT_2_PAD) | \
-                                     PIN_ODR_LOW(MOTOR_1_PHASE_OUTPUT_3_PAD) | \
-                                     PIN_ODR_LOW(MOTOR_1_PHASE_OUTPUT_4_PAD))
+#define VAL_GPIOF_MODER             (PIN_MODE_OUTPUT(MOTOR_1_IN1_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_1_IN2_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_2_IN1_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_2_IN2_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_3_IN1_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_3_IN2_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_4_IN1_PAD) | \
+                                     PIN_MODE_OUTPUT(MOTOR_4_IN2_PAD))
+#define VAL_GPIOF_OTYPER            (PIN_OTYPE_PUSHPULL(MOTOR_1_IN1_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_1_IN2_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_2_IN1_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_2_IN2_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_3_IN1_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_3_IN2_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_4_IN1_PAD) | \
+                                     PIN_OTYPE_PUSHPULL(MOTOR_4_IN2_PAD))
+#define VAL_GPIOF_OSPEEDR           (PIN_OSPEED_VERYLOW(MOTOR_1_IN1_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_1_IN2_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_2_IN1_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_2_IN2_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_3_IN1_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_3_IN2_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_4_IN1_PAD) | \
+                                     PIN_OSPEED_VERYLOW(MOTOR_4_IN2_PAD))
+#define VAL_GPIOF_PUPDR             (PIN_PUPDR_FLOATING(MOTOR_1_IN1_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_1_IN2_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_2_IN1_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_2_IN2_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_3_IN1_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_3_IN2_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_4_IN1_PAD) | \
+                                     PIN_PUPDR_FLOATING(MOTOR_4_IN2_PAD))
+#define VAL_GPIOF_ODR               (PIN_ODR_LOW(MOTOR_1_IN1_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_1_IN2_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_2_IN1_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_2_IN2_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_3_IN1_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_3_IN2_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_4_IN1_PAD) | \
+                                     PIN_ODR_LOW(MOTOR_4_IN2_PAD))
 #define VAL_GPIOF_AFRL              (0U)
 #define VAL_GPIOF_AFRH              (0U)
 

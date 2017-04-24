@@ -60,9 +60,32 @@
 #define ULTRASONIC_SENSOR_7_TRIGGER_PAD     14
 #define ULTRASONIC_SENSOR_8_TRIGGER_PAD     15
 
-//! \section Motor control port/pad definitions
-#define MOTOR_1_PHASE_OUTPUTS_PORT          GPIOF
-#define MOTOR_1_PHASE_OUTPUT_1_PAD          0
-#define MOTOR_1_PHASE_OUTPUT_2_PAD          1
-#define MOTOR_1_PHASE_OUTPUT_3_PAD          2
-#define MOTOR_1_PHASE_OUTPUT_4_PAD          3
+//! \section DC motor control port/pad definitions
+#define MOTOR_1_IN1_PORT                    GPIOF
+#define MOTOR_1_IN1_PAD                     0
+#define MOTOR_1_IN2_PORT                    GPIOF
+#define MOTOR_1_IN2_PAD                     1
+#define MOTOR_1_PWR_PORT                    GPIOE
+#define MOTOR_1_PWR_PAD                     9
+#define MOTOR_1_PWR_AF                      1
+#define MOTOR_2_IN1_PORT                    GPIOF
+#define MOTOR_2_IN1_PAD                     2
+#define MOTOR_2_IN2_PORT                    GPIOF
+#define MOTOR_2_IN2_PAD                     3
+#define MOTOR_2_PWR_PORT                    GPIOE
+#define MOTOR_2_PWR_PAD                     11
+#define MOTOR_2_PWR_AF                      1
+#define MOTOR_3_IN1_PORT                    GPIOF
+#define MOTOR_3_IN1_PAD                     4
+#define MOTOR_3_IN2_PORT                    GPIOF
+#define MOTOR_3_IN2_PAD                     5
+#define MOTOR_3_PWR_PORT                    GPIOE
+#define MOTOR_3_PWR_PAD                     13
+#define MOTOR_3_PWR_AF                      1
+#define MOTOR_4_IN1_PORT                    GPIOF
+#define MOTOR_4_IN1_PAD                     6
+#define MOTOR_4_IN2_PORT                    GPIOF
+#define MOTOR_4_IN2_PAD                     7
+#define MOTOR_4_PWR_PORT                    GPIOE
+#define MOTOR_4_PWR_PAD                     14
+#define MOTOR_4_PWR_AF                      1
