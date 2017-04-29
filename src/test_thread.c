@@ -3,24 +3,38 @@
 #include <ch.h>
 #include <motor_control.h>
 
-void sumoTestThread_MotorControl(void)
+void sumoTestThreadMotorControlSetTargetSpeedAll(int32_t speed)
+{
+    for (uint32_t motor = 0; motor < NUM_MOTORS; motor++) {
+        sumoMotorSetTargetSpeed(motor, speed);
+    }
+}
+
+void sumoTestThreadMotorControlRequestHardStopAll(void)
+{
+    for (uint32_t motor = 0; motor < NUM_MOTORS; motor++) {
+        sumoMotorRequestHardStop(motor);
+    }
+}
+
+void sumoTestThreadMotorControl(void)
 {
     while (true) {
-        sumoMotorSetTargetSpeed(0, 5000);
+        sumoTestThreadMotorControlSetTargetSpeedAll(5000);
         chThdSleepMilliseconds(2000);
-        sumoMotorSetTargetSpeed(0, 10000);
+        sumoTestThreadMotorControlSetTargetSpeedAll(10000);
         chThdSleepMilliseconds(2000);
-        sumoMotorSetTargetSpeed(0, -10000);
+        sumoTestThreadMotorControlSetTargetSpeedAll(-10000);
         chThdSleepMilliseconds(2000);
-        sumoMotorRequestHardStop(0);
+        sumoTestThreadMotorControlRequestHardStopAll();
         chThdSleepMilliseconds(2000);
-        sumoMotorSetTargetSpeed(0, 10000);
+        sumoTestThreadMotorControlSetTargetSpeedAll(10000);
         chThdSleepMilliseconds(2000);
-        sumoMotorSetTargetSpeed(0, 0);
+        sumoTestThreadMotorControlSetTargetSpeedAll(0);
         chThdSleepMilliseconds(2000);
-        sumoMotorSetTargetSpeed(0, -10000);
+        sumoTestThreadMotorControlSetTargetSpeedAll(-10000);
         chThdSleepMilliseconds(2000);
-        sumoMotorSetTargetSpeed(0, 0);
+        sumoTestThreadMotorControlSetTargetSpeedAll(0);
         chThdSleepMilliseconds(2000);
     }
 }
@@ -30,7 +44,7 @@ static THD_FUNCTION(sumoTestThread, p)
     (void)p;
     chRegSetThreadName("Test thread");
 
-    sumoTestThread_MotorControl();
+    sumoTestThreadMotorControl();
 }
 
 static THD_WORKING_AREA(sumoTestThreadWA, 1024);
