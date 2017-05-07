@@ -134,6 +134,7 @@ In the repository root, run the following:
 ### Windows
 
 Download and install *ST-Link Utility* (http://www.st.com/en/embedded-software/stsw-link004.html)
+After building the firmware, flash the `sumobot.bin` file to the microcontroller
 
 ## Debug
 
