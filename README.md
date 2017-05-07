@@ -57,23 +57,66 @@
 
 # Environment
 
-* Ubuntu Linux 16.04.2 LTS or Linux Mint 18.2
+## Linux
+
+* One of the following environments:
+  * Ubuntu Linux 16.04.2 LTS
+  * Linux Mint 18.1
 * Following packages from APT
   * build-essential
   * git
   * openocd
 * Following packages from third-party PPAs
-  * GNU ARM Embedded Toolchain (https://launchpad.net/~team-gcc-arm-embedded/+archive/ubuntu/ppa)
+  * GNU ARM Embedded Toolchain (install instructions here: https://launchpad.net/~team-gcc-arm-embedded/+archive/ubuntu/ppa)
+
+## Windows
+
+* Download and install *MSYS2* (http://www.msys2.org) into *C:\tools\msys2* and run the following commands in an MSYS2 shell:
+  * `pacman -Syu` (will force you to recycle MSYS2)
+  * `pacman -Su`
+  * `pacman -S base-devel make git gcc`
+* Download and extract the Win32 version of the *GNU ARM Embedded Toolchain* (https://launchpad.net/gcc-arm-embedded) - for reference in later sections, I've installed it in *C:\tools\gcc-arm-none-eabi*
+* Add the following directories to your local path:
+  * `C:\tools\gcc-arm-none-eabi\bin`
+  * `C:\tools\msys2\usr\local\bin`
+  * `C:\tools\msys2\usr\bin`
+  * `C:\tools\msys2\bin`
+
+## Git
+
+Run the following commands to setup Git:
+* `git config --global user.email "craig.sacco@gmail.com"`
+* `git config --global user.name "Craig Sacco"`
+
+### Additional setup on Windows
+
+Run the following commands on Windows-only systems:
+* `git config --global core.autocrlf "input"`
+
+## IDE
+
+My personal preference is Qt Creator, but is pretty much up to you :-)
+
+### Qt Creator
+
+* Open the Options dialog
+* In *Build and Run* do the following:
+  * Create a C compiler reference pointing to */usr/bin/gcc-arm-none-eabi-gcc* (or *C:\tools\gcc-arm-none-eabi\bin\gcc-arm-none-eabi-gcc.exe* under Windows) and call it *GNU (ARM Baremetal)*
+  * Create a C++ compiler reference pointing to */usr/bin/gcc-arm-none-eabi-g++* (or *C:\tools\gcc-arm-none-eabi\bin\gcc-arm-none-eabi-g++.exe* under Windows) and call it *GNU (ARM Baremetal)*
+  * Create a GDB debugger reference pointing to */usr/bin/gcc-arm-none-eabi-gdb* (or *C:\tools\gcc-arm-none-eabi\bin\gcc-arm-none-eabi-gdb.exe* under Windows) and call it *GNU (ARM Baremetal)*
+  * Create a new kit called *GNU (ARM Baremetal)*, using the references created above
 
 # Usage
 
 ## Build
 
-Clone the repository as well as submodules
+Clone the repository as well as submodules using `git clone --recursive https://github.com/craigsacco/Sumobot.git`
 
 Run `make` to build everything
 
 ## Flash
+
+### Linux
 
 If you haven't built stlink yet, run the following in the *lib/stlink* directory:
 ~~~~
@@ -88,7 +131,13 @@ In the repository root, run the following:
 ./flash.sh
 ~~~~
 
+### Windows
+
+Download and install *ST-Link Utility* (http://www.st.com/en/embedded-software/stsw-link004.html)
+
 ## Debug
+
+### Linux
 
 In the repository root, run the following:
 ~~~~
@@ -109,3 +158,7 @@ continue
 ~~~~
 
 From this point on, you can use the standard set of GDB commands to debug your application
+
+### Windows
+
+TBD
